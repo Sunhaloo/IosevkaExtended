@@ -86,7 +86,9 @@ unzip IosevkaExtended-<tag>-<type>.zip
 - Install the font **user-wide**:
 
 ```bash
-# NOTE: make sure that you already have the `~/.local/share/fonts/` directory
+# create the user fonts directory
+# INFO: fails if you already have ( nothing is overridden; safe to run )
+mkdir -p ~/.local/share/fonts
 
 # assuming that you are inside the `~/Downloads` directory
 cp -r IosevkaExtended ~/.local/share/fonts/
