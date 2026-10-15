@@ -40,13 +40,13 @@
 
 I was simply browsing [programmingfonts.org](https://www.programmingfonts.org/) as one usually does on a random Wednesday night and I came across [Iosevka Extended](https://www.programmingfonts.org/#iosevka-extended).
 
-> My god it was *love at first font* ( *never kissed a woman what do you expect of me* )...
+> My god it was _love at first font_ ( _never kissed a woman what do you expect of me_ )...
 
-I tried so hard to find **official**, yes *official* download for 'Iosevka Extended' ( *`.ttf` version* ) but could **not** find it at all.
+I tried so hard to find the **official**, yes _official_ download for 'Iosevka Extended' ( _`.ttf` version_ ) but could **not** find it at all.
 
 > I know that the `.ttc` format exists for the 'Extended' version but **not** `.ttf`!
 
-Hence, this is why I basically created this "*custom version*" using the original Iosevka Font by using their [online customiser](https://typeof.net/Iosevka/customizer) to get the *build plans* so that I can actually use the font everywhere.
+Hence, this is why I basically created this "_custom version_" using the original Iosevka Font by using their [online customiser](https://typeof.net/Iosevka/customizer) to get the _build plans_ so that I can actually use the font everywhere.
 
 > Hope you enjoy!
 
@@ -61,9 +61,9 @@ Hence, this is why I basically created this "*custom version*" using the origina
 - **Web** ( `IosevkaExtended-<tag>-Web.zip` ): WOFF2 web fonts for websites.
 
 > [!WARNING]
-> 
+>
 > > Linux users!
-> 
+>
 > Either you choose to install it _system-wide_ or _user-wide_ but **not** both!
 >
 > You would generally use the _user-wide_ installation method if you **don't** have _root_ access to the system that you are on.
@@ -71,7 +71,7 @@ Hence, this is why I basically created this "*custom version*" using the origina
 > But given that on my system I am inside the `sudoers` file; I install my fonts **system-wide** so that I can have all my fonts in a single place.
 
 > [!IMPORTANT]
-> Obviously the **web version** of the fonts, i.e. the `*.woff2` extension are **not** going to be *installable*!
+> Obviously the **web version** of the fonts, i.e. the `*.woff2` extension are **not** going to be _installable_!
 
 ### Linux
 
@@ -89,26 +89,26 @@ unzip IosevkaExtended-<tag>-<type>.zip
 # NOTE: make sure that you already have the `~/.local/share/fonts/` directory
 
 # assuming that you are inside the `~/Downloads` directory
-cp -r IosevkaExtended-<tag>-<type>/IosevkaExtended/ ~/.local/share/fonts/
+cp -r IosevkaExtended ~/.local/share/fonts/
 
 # make the system know that we have added another font
 fc-cache -fv
 
 # ( optional ) delete the unwanted files
-rm -rf IosevkaExtended-<tag>-<type>.zip IosevkaExtended-<tag>-<type>
+rm -rf IosevkaExtended-<tag>-<type>.zip IosevkaExtended
 ```
 
 - Install the font **system-wide**:
 
 ```bash
 # assuming that you are inside the `~/Downloads` directory
-sudo cp -r IosevkaExtended-<tag>-<type>/IosevkaExtended/ /usr/share/fonts/
+sudo cp -r IosevkaExtended /usr/share/fonts/
 
 # make the system know that we have added another font
 fc-cache -fv
 
 # ( optional ) delete the unwanted files
-rm -rf IosevkaExtended-<tag>-<type>.zip IosevkaExtended-<tag>-<type>
+rm -rf IosevkaExtended-<tag>-<type>.zip IosevkaExtended
 ```
 
 ### Windows
@@ -117,7 +117,7 @@ rm -rf IosevkaExtended-<tag>-<type>.zip IosevkaExtended-<tag>-<type>
 - Assuming that you are inside the `~\Downloads` folder
   - Simply extract the `.zip` file using the _right-click_ menu like a [normie](https://www.urbandictionary.com/define.php?term=Normie).
 - Hence follow this path: `IosevkaExtended-<tag>-<type>\IosevkaExtended\`
-- Select all the `*.ttf` fonts, *right-click* and hit the **Install** or **Install for all users**.
+- Select all the `*.ttf` fonts, _right-click_ and hit the **Install** or **Install for all users**.
 
 ## Usage
 
@@ -158,13 +158,10 @@ font-size = 14
 
 ```json
 {
-  // font family
   "ui_font_family": "Iosevka Extended",
   "buffer_font_family": "Iosevka Extended",
-
-  // font size
   "ui_font_size": 14,
-  "buffer_font_size": 14,
+  "buffer_font_size": 14
 }
 ```
 
@@ -193,7 +190,7 @@ Therefore, if you want to try this by yourself. I suggest you to check out the f
 - Markdown Files:
   - Making The Custom Font: <code><a href="https://github.com/Sunhaloo/IosevkaExtended/tree/main/learning/Iosevka%20Font%20Customiser.md">Iosevka Font Customiser.md</a></code>
   - Publishing on GitHub: <code><a href="https://github.com/Sunhaloo/IosevkaExtended/tree/main/learning/Publishing%20Iosevka%20Extended%20Font.md">Publishing Iosevka Extended Font.md</a></code>
-  
+
 ## License and Credits
 
 Iosevka Extended is built from [Iosevka](https://typeof.net/Iosevka/) by Renzhi Li (Belleve Invis) and is licensed under the SIL Open Font License 1.1. See [LICENSE.md](./LICENSE.md). Built from Iosevka v34.9.0.
