@@ -1,0 +1,121 @@
+# name of the workflow
+name: Build and Release Font
+
+# event for the workflow to act on
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+# jobs run by the workflow
+jobs:
+  # linux build
+  build:
+    runs-on: ubuntu-latest
+
+    # change the permission so that we are able to save our files
+    permissions:
+      contents: write
+
+    # steps for the linux virtual machine / runner to take
+    steps:
+      - name: Clone our repository onto GitHub's virtual runner
+        uses: actions/checkout@v7
+
+      - name: Clone Iosevka official repository
+        uses: actions/checkout@v7
+        with:
+          # details about the cloned repository
+          repository: be5invis/Iosevka
+          # pin down the version so that new changes does not affect build here
+          ref: v34.9.0
+          # the folder / directory for name for when cloning the original 'Iosevka' repositoy
+          path: iosevka-src
+          # following the official documentation by Iosevka
+          fetch-depth: 1
+
+      - name: Install required dependencies for font
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fontforge python3 ttfautohint
+
+      # following the official 'basic' setup guide from actions/setup-node README.md
+      - name: Set up Node.js for the font building process
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Build the Iosevka Extended Font
+        run: |
+          # refer to my 'Iosevka Font Customiser' markdown note inside of `learning`
+          cp private-build-plans.toml iosevka-src/ && cd iosevka-src
+          # install the required dependencies inside of Iosevka's repository
+          npm install
+          # command to build the 'hinted' and 'unhinted' fonts
+          npm run build -- contents::IosevkaExtended
+
+      - name: Verify build output
+        run: |
+          DIST="iosevka-src/dist/IosevkaExtended"
+
+          # check if the following directories exists inside the `$DIST` "folder"
+          for dir in TTF TTF-Unhinted WOFF2; do
+            if [ ! -d "$DIST/$dir" ]; then
+              echo "IosevkaExtended $dir output not found!"
+              exit 1
+            fi
+          done
+
+          # use the `wc -l` command to count the number of font files in TTF
+          ttf_count_hinted=$(find "$DIST/TTF" -name '*.ttf' | wc -l)
+
+          # if any error occured!
+          if [ "$ttf_count_hinted" -ne 27 ]; then
+            echo "Expected 27 TTF files, found $ttf_count"
+            exit 1
+          fi
+
+          # use the `wc -l` command to count the number of font files in TTF-Unhinted
+          ttf_count_unhinted=$(find "$DIST/TTF" -name '*.ttf' | wc -l)
+
+          # if any error occured!
+          if [ "$ttf_count_unhinted" -ne 27 ]; then
+            echo "Expected 27 TTF files, found $ttf_count"
+            exit 1
+          fi
+
+      - name: Package fonts release archives by zipping it
+        env:
+          VERSION: ${{ github.ref_name }}
+        run: |
+          DIST="iosevka-src/dist/IosevkaExtended"
+
+          # hinted TTFs + license
+          mkdir -p pkg-hinted/IosevkaExtended
+          cp "$DIST"/TTF/*.ttf pkg-hinted/IosevkaExtended/
+          cp LICENSE.md pkg-hinted/IosevkaExtended/
+          (cd pkg-hinted && zip -r "../IosevkaExtended-${VERSION}-Hinted.zip" IosevkaExtended)
+
+          # unhinted TTFs + license
+          mkdir -p pkg-unhinted/IosevkaExtended
+          cp "$DIST"/TTF-Unhinted/*.ttf pkg-unhinted/IosevkaExtended/
+          cp LICENSE.md pkg-unhinted/IosevkaExtended/
+          (cd pkg-unhinted && zip -r "../IosevkaExtended-${VERSION}-Unhinted.zip" IosevkaExtended)
+
+          # web fonts: WOFF2 + license
+          mkdir -p pkg-web/IosevkaExtended-Web
+          cp "$DIST"/WOFF2/*.woff2 pkg-web/IosevkaExtended-Web/
+          cp LICENSE.md pkg-web/IosevkaExtended-Web/
+          (cd pkg-web && zip -r "../IosevkaExtended-${VERSION}-Web.zip" IosevkaExtended-Web)
+
+          ls -lh IosevkaExtended-*.zip
+
+      - name: Create release and upload to releases section
+        uses: softprops/action-gh-release@v2
+        with:
+          draft: true
+          name: "Iosevka Extended ${{ github.ref_name }}"
+          body_path: .github/release-notes.md
+          files: |
+            IosevkaExtended-${{ github.ref_name }}-TTF.zip
+            IosevkaExtended-${{ github.ref_name }}-Web.zip

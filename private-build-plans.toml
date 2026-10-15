@@ -1,0 +1,11 @@
+[buildPlans.IosevkaExtended]
+family = "Iosevka Extended"
+spacing = "normal"
+serifs = "sans"
+noCvSs = false
+exportGlyphNames = true
+
+[buildPlans.IosevkaExtended.widths.Normal]
+shape = 600
+menu = 5
+css = "normal"
