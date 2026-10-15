@@ -25,7 +25,7 @@ status: Completed
 
 ---
 
-> [!NOTE] Resource(s)
+> [!NOTE]
 >
 > - Website:
 >   - <https://typeof.net/Iosevka/>
@@ -130,7 +130,10 @@ menu = 5
 css = "normal"
 ```
 
-> [!BUG] Compilation and Building Times
+> [!BUG]
+>
+> > Compilation and Building Times
+
 > Given that I simply wanted an **extended** version of Iosevka... I selected **all** the _weights_ so as to be able to match the different _weight styles_ that you see when you run the `kitty list-fonts` command.
 >
 > The main thing that **affects** _build times_ are the **Font Widths**!
@@ -141,7 +144,10 @@ css = "normal"
 >
 > Therefore, for testing purposes; simply compile and test with the **unhinted** version of the fonts so that it only has one job to do.
 
-> [!TIP] Hinted or Un-hinted?
+> [!TIP]
+>
+> > Hinted or Un-hinted?
+>
 > I would personally _recommend_ the **hinted** version of fonts generally because I still use laptop displays that has a resolution of '1366x768'.
 >
 > Nevertheless, if you have access to high-quality screens and also don't share your work with others ( _like exporting PDFs with the font_ ). Then, you could use the **un-hinted** version as on good quality screens; it does **not** make of a _difference_!
@@ -173,7 +179,7 @@ css = "normal"
 npm run build -- ttf::IosevkaExtended
 ```
 
-> [!SUCCESS]
+> [!TIP]
 > After the building process occurs; you should see that we have a `dist/IosevkaExtended/TTF` and `dist/IosevkaExtended/TTF-Unhinted` folders whereby all the `.ttf` files are going to be located at.
 >
 > Now most people are going to tell you to create a `~/.local/share/fonts/` but I don't like to do that... Instead I send it straight to the `/usr/share/fonts/` directory so that I have all my fonts _installed_ in one place only!

@@ -117,5 +117,6 @@ jobs:
           name: "Iosevka Extended ${{ github.ref_name }}"
           body_path: .github/release-notes.md
           files: |
-            IosevkaExtended-${{ github.ref_name }}-TTF.zip
+            IosevkaExtended-${{ github.ref_name }}-Hinted.zip
+            IosevkaExtended-${{ github.ref_name }}-Unhinted.zip
             IosevkaExtended-${{ github.ref_name }}-Web.zip

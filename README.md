@@ -110,7 +110,7 @@ fc-cache -fv
 
 ### Kitty Terminal
 
-- To use the font inside of [Kitty] terminal, simply add the following lines below to the `~/.config/kitty/kitty.conf` file:
+- To use the font inside of [Kitty](https://github.com/kovidgoyal/kitty) terminal, simply add the following lines below to the `~/.config/kitty/kitty.conf` file:
 
 ```conf
 font_family      family="Iosevka Extended"
@@ -119,7 +119,7 @@ font_size 14.0
 
 ### Ghostty Terminal
 
-- Similarly, if you uses [Ghostty](<>) instead, simply add the following lines below to the `~/.config/ghostty/config.ghostty` file:
+- Similarly, if you uses [Ghostty](https://github.com/ghostty-org/ghostty) instead, simply add the following lines below to the `~/.config/ghostty/config.ghostty` file:
 
 ```conf
 font-family = "Iosevka Extended"
@@ -140,7 +140,7 @@ This is what I think AI should be actually doing and automating for us; the meni
 
 Where AI was use primarily was to create the screenshots by making a bash script that use the extremely easy-to-use <code><a href="https://github.com/charmbracelet/freeze">freeze</a></a></code> CLI tool by [Charm](https://charm.land/).
 
-> Please head over to the following link to view the bash script generated: <https://github.com/Sunhaloo/IosevkaExtended/tree/main/learning#the-screenshot-bash-script>
+> Please head over to the following link to view the bash script generated: <https://github.com/Sunhaloo/IosevkaExtended/tree/main/learning/Publishing%20Iosevka%20Extended%20Font.md#the-screenshot-bash-script>
 
 ## Do It Yourself
 
