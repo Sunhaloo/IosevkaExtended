@@ -71,22 +71,20 @@ jobs:
 
           # if any error occured!
           if [ "$ttf_count_hinted" -ne 27 ]; then
-            echo "Expected 27 TTF files, found $ttf_count"
+            echo "Expected 27 hinted TTF files, found $ttf_count_hinted"
             exit 1
           fi
 
           # use the `wc -l` command to count the number of font files in TTF-Unhinted
-          ttf_count_unhinted=$(find "$DIST/TTF" -name '*.ttf' | wc -l)
+          ttf_count_unhinted=$(find "$DIST/TTF-Unhinted" -name '*.ttf' | wc -l)
 
           # if any error occured!
           if [ "$ttf_count_unhinted" -ne 27 ]; then
-            echo "Expected 27 TTF files, found $ttf_count"
+            echo "Expected 27 unhinted TTF files, found $ttf_count_unhinted"
             exit 1
           fi
 
       - name: Package fonts release archives by zipping it
-        env:
-          VERSION: ${{ github.ref_name }}
         run: |
           DIST="iosevka-src/dist/IosevkaExtended"
 
@@ -94,28 +92,30 @@ jobs:
           mkdir -p pkg-hinted/IosevkaExtended
           cp "$DIST"/TTF/*.ttf pkg-hinted/IosevkaExtended/
           cp LICENSE.md pkg-hinted/IosevkaExtended/
-          (cd pkg-hinted && zip -r "../IosevkaExtended-${VERSION}-Hinted.zip" IosevkaExtended)
+          (cd pkg-hinted && zip -r "../IosevkaExtended-Hinted.zip" IosevkaExtended)
 
           # unhinted TTFs + license
           mkdir -p pkg-unhinted/IosevkaExtended
           cp "$DIST"/TTF-Unhinted/*.ttf pkg-unhinted/IosevkaExtended/
           cp LICENSE.md pkg-unhinted/IosevkaExtended/
-          (cd pkg-unhinted && zip -r "../IosevkaExtended-${VERSION}-Unhinted.zip" IosevkaExtended)
+          (cd pkg-unhinted && zip -r "../IosevkaExtended-Unhinted.zip" IosevkaExtended)
 
           # web fonts: WOFF2 + license
           mkdir -p pkg-web/IosevkaExtended-Web
           cp "$DIST"/WOFF2/*.woff2 pkg-web/IosevkaExtended-Web/
           cp LICENSE.md pkg-web/IosevkaExtended-Web/
-          (cd pkg-web && zip -r "../IosevkaExtended-${VERSION}-Web.zip" IosevkaExtended-Web)
+          (cd pkg-web && zip -r "../IosevkaExtended-Web.zip" IosevkaExtended-Web)
 
           ls -lh IosevkaExtended-*.zip
 
       - name: Create release and upload to releases section
         uses: softprops/action-gh-release@v2
         with:
+          # create a 'draft' release first so that we can check it before publishing
+          draft: true
           name: "Iosevka Extended ${{ github.ref_name }}"
           body_path: .github/release-notes.md
           files: |
-            IosevkaExtended-${{ github.ref_name }}-Hinted.zip
-            IosevkaExtended-${{ github.ref_name }}-Unhinted.zip
-            IosevkaExtended-${{ github.ref_name }}-Web.zip
+            IosevkaExtended-Hinted.zip
+            IosevkaExtended-Unhinted.zip
+            IosevkaExtended-Web.zip

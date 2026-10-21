@@ -16,21 +16,21 @@
   </tr>
 
   <tr>
-    <td><code>IosevkaExtended-&lt;tag&gt;-Hinted.zip</code></td>
+    <td><code>IosevkaExtended-Hinted.zip</code></td>
     <td>
-      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/download/v1.0.0/IosevkaExtended-v1.0.0-Hinted.zip">Download</a>
+      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Hinted.zip">Download</a>
     </td>
   </tr>
   <tr>
-    <td><code>IosevkaExtended-&lt;tag&gt;-Unhinted.zip</code></td>
+    <td><code>IosevkaExtended-Unhinted.zip</code></td>
     <td>
-      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/download/v1.0.0/IosevkaExtended-v1.0.0-Unhinted.zip">Download</a>
+      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Unhinted.zip">Download</a>
     </td>
   </tr>
   <tr>
-    <td><code>IosevkaExtended-&lt;tag&gt;-Web.zip</code></td>
+    <td><code>IosevkaExtended-Web.zip</code></td>
     <td>
-      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/download/v1.0.0/IosevkaExtended-v1.0.0-Web.zip">Download</a>
+      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Web.zip">Download</a>
     </td>
   </tr>
 </table>
