@@ -4,6 +4,9 @@
   <img src="./assets/charset.png" alt="Basic Character Set" width="400">
 </p>
 
+> [!NOTE]
+> More screenshots of the font in different programming and markup languages are in the [assets](https://github.com/Sunhaloo/IosevkaExtended/tree/main/assets) folder.
+
 ## Backstory
 
 I pretty much live inside the terminal doing everything from running simple commands to even writing code using terminal text editors such as [Neovim](https://neovim.io/). This means that I spent most of my time looking at _characters_ on my screen and I have been looking for a good, high-quality, readable, font since I started working in the terminal.
