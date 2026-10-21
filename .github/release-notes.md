@@ -1,36 +1,14 @@
-## What ZIP File To Download?
+## Which ZIP file should I download?
 
-- **Hinted**: Main font that **most** people should be using as it includes `ttfautohint` for crisper text on low resolution screens like 1366x768 ( mainly on Windows and in apps that use embedded hints ).
-- **Unhinted**: Smaller file size, which people on high resolution / high-DPI displays should be using, or when your operating system / application ignores _hinting_.
-- **Web**: WOFF2 web fonts for websites.
+| File | Best for | Download |
+| ---- | -------- | -------- |
+| `IosevkaExtended-Hinted.zip` | Most people. `ttfautohint` applied, for crisper text on low resolution screens ( mainly on Windows ). | [Download](https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Hinted.zip) |
+| `IosevkaExtended-Unhinted.zip` | High resolution / high-DPI displays, or when your OS / application ignores hinting. Smaller files. | [Download](https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Unhinted.zip) |
+| `IosevkaExtended-Web.zip` | `WOFF2` web fonts for websites ( not installable as system fonts ). | [Download](https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Web.zip) |
+
+All sets contain 27 styles ( 9 weights × 3 slopes, one width ), built from Iosevka v34.9.0.
 
 > [!WARNING]
-> Install **only one** of the Hinted or Unhinted sets, as both use the same family name and **will** conflict.
+> Install **only one** of the Hinted or Unhinted sets. Both use the same family name and **will** conflict.
 
-### See Links Below For Download
-
-<table>
-  <tr>
-    <th>Font Type</th>
-    <th>Download Links</th>
-  </tr>
-
-  <tr>
-    <td><code>IosevkaExtended-Hinted.zip</code></td>
-    <td>
-      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Hinted.zip">Download</a>
-    </td>
-  </tr>
-  <tr>
-    <td><code>IosevkaExtended-Unhinted.zip</code></td>
-    <td>
-      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Unhinted.zip">Download</a>
-    </td>
-  </tr>
-  <tr>
-    <td><code>IosevkaExtended-Web.zip</code></td>
-    <td>
-      <a href="https://github.com/Sunhaloo/IosevkaExtended/releases/latest/download/IosevkaExtended-Web.zip">Download</a>
-    </td>
-  </tr>
-</table>
+For installation and usage, see the [README](https://github.com/Sunhaloo/IosevkaExtended#installation).
